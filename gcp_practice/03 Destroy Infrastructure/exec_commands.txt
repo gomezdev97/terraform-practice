@@ -1,0 +1,4 @@
+# Terminate resources managed by your Terraform project.
+# This command is the inverse of terraform apply in that it
+# terminates all the resources specified in your Terraform state.
+terraform destroy

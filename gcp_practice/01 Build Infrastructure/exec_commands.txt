@@ -1,0 +1,19 @@
+# Initialize the directory and downloads the providers defined in the configuration.
+terraform init
+
+# Formatting in all of your configuration files.
+# Automatically updates configurations in the current directory for readability and consistency.
+terraform fmt
+
+# You can also make sure your configuration is syntactically valid and internally consistent
+terraform validate
+
+# Apply the configuration. 
+terraform apply
+
+# The Terraform state file is the only way Terraform can track which resources it manages,
+# and often contains sensitive information, so you must store your state file securely and
+# distribute it only to trusted team members who need to manage your infrastructure.
+
+# Inspect the current state
+terraform show
