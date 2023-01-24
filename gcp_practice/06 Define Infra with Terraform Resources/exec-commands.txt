@@ -1,0 +1,2 @@
+# List available images on gcloud OS
+gcloud compute images list
