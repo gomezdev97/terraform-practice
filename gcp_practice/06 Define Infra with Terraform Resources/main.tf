@@ -32,6 +32,10 @@ resource "google_compute_instance" "vm_instance" {
     access_config {
     }
   }
+  # https://cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh-errors?hl=es-419
+  metadata = {
+    ssh-keys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
+  }
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -64,6 +68,17 @@ resource "google_compute_firewall" "egress"{
     protocol = "all"
   }
 }
+
+# resource "google_compute_project_metadata" "default" {
+#   metadata = {
+#     ssh-keys = <<EOF
+#       david@DESKTOP-PV0N8VQ: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDoprEIP4QOtluMzZS+wFG+89GXI8qgDhK0y0bKEJndjtlLNpXrDXmvZv9+2B05ZjnVn8atgHF8uF7cjyyDt4R0jbKIpA7ndUMfo99Nxc2C9D5ReKXAFVKjsnwBxowQ3lG8sRlKRxhev/3OyrEMaCrvDB6Qk7ghKC8gttrMAyc+qfMKSL0TXnAQd+lsKlHsEParZH2tj2EMcEuYge5hlVnvTSL9wb11g98ojxkEETrd2ZtsP5mN63Yc8VFs1FQcBkgMtYO6FHzWI8dyG6/a2VqTH9d80cHlWf16DaHlt1NJeEOYr/WQ0PKVo5ZI4nCPYGHYXFfuwPBLdT4A/75t/nlhFPkx7lIliRrsFzsVICssrf35Bp9yhBFaAQe+v8jTpplq8/sPr/DLKQ1+IHYzjWnIspOLt3D+k/F6AfI+tiTZCksuP6sAcjcNcGMdUO3OkFwtlGGWlfLBJ+EWi+nwbfUtY7/GYhC0V5SWwFtYmuHPwVbm9uvzTnyfYzCUmju04WdXeHOppR/plh2zahHlTZokM2TOPq9sh8GxR2x6k/b3IpY2XZOk4L1l+D8EoLC0UgIgcsW6J/DBrKfVXrVn7QJjYii/or4uF8/PYmHF6E00MRYQjB5vyYiROUL01cuvWjvwkm/SiEvFBzlktG/DIObrTGpxS8//z3936hhlJqNfHw== david@DESKTOP-PV0N8VQ
+      
+#       EOF
+#   }
+# }
+
+
 
 # resource "google_compute_network_firewall_policy" "terraform_firewall_policy" {
 #   name        = "tf-policy"

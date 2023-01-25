@@ -13,3 +13,7 @@ variable "zone" {
 variable "vm_instance_name"{
   default = "terraform-instance"
 }
+
+variable "gce_ssh_user"{ }
+
+variable "gce_ssh_pub_key_file"{ }

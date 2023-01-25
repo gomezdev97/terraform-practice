@@ -1,8 +1,8 @@
 #!/bin/bash
-yum update -y
-yum -y remove httpd
-yum -y remove httpd-tools
-yum install -y httpd24 php72 mysql57-server php72-mysqlnd
+sudo yum update -y
+sudo yum -y remove httpd
+sudo yum -y remove httpd-tools
+sudo yum install -y httpd24 php72 mysql57-server php72-mysqlnd
 service httpd start
 chkconfig httpd on
 

@@ -1,3 +1,5 @@
 project = "keen-vial-375314"
 credentials_file = "../keen-vial-375314-f89db8d37957.json"
 vm_instance_name = "php-provision"
+gce_ssh_user = "david@DESKTOP-PV0N8VQ"
+gce_ssh_pub_key_file = "../../../.ssh/id_rsa.pub"
